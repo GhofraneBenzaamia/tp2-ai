@@ -10,3 +10,18 @@ element_of(X, [_ | Tail]) :-
 first(E, [E | _]).
 
 
+%QUESTION 3
+% Base case: the last element of a single-element list is that element itself.
+last([X], X).
+
+% Recursive case: move down the list by calling last on the tail.
+last([_ | Tail], X) :-
+    last(Tail, X).
+
+%QUESTION 4
+% Base case: the penultimate element of a list with only two elements is the first element.
+penultimate([X, _], X).
+
+% Recursive case: move down the list by calling penultimate on the tail.
+penultimate([_| Tail], X) :-
+    penultimate([Tail], X).
