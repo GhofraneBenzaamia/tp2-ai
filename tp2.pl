@@ -25,3 +25,13 @@ penultimate([X, _], X).
 % Recursive case: move down the list by calling penultimate on the tail.
 penultimate([_| Tail], X) :-
     penultimate([Tail], X).
+
+%QUESTION 5
+% Base case: if K is 1, we remove the head of the list.
+del_k(X, [X|Tail], 1, Tail).
+
+% Recursive case: decrement K and traverse the list to find the Kth element.
+del_k(X, [Head|Tail], K, [Head|NewTail]) :-
+    K > 1,
+    K1 is K - 1,
+    del_k(X, Tail, K1, NewTail).
